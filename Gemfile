@@ -63,7 +63,7 @@ group :test do
 end
 
 gem "dartsass-rails", "~> 0.5.1"
-gem "bootstrap", "~> 5.3.3"
+gem "bootstrap", "~> 5.3.5"
 #gem "font-awesome-sass"
 gem "material_icons"
 gem "devise"
