@@ -1,0 +1,51 @@
+<% content_for :title, "Trades" %>
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <div class="fw-bold">交易记录</div>
+        <a href="<%= new_trade_path %>" class="btn btn-primary btn-sm ms-auto">
+          <i class="bi bi-plus"></i>交易
+        </a> 
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="table-responsive">
+          <table class="table table-hover" role="grid">
+            <thead>
+              <tr class="text-nowrap">
+                <th>编号</th>
+                <th>用户</th>
+                <th>交易类型</th>
+                <th>买卖方向</th>
+                <th>现价市价</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>創建時間</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @trades.each do |trade| %>
+                <tr>
+                  <td><%= trade.id %></td>
+                  <td><%= trade.user.email %></td>
+                  <td><%= trade.trade_type %></td>
+                  <td><%= trade.side %></td>
+                  <td><%= trade.order_type %></td>
+                  <td><%= trade.price %></td>
+                  <td><%= trade.quantity %></td>
+
+                  <td><%= trade.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+                  <td><a href="<%= trade_path(trade) %>"><i class="bi bi-eye-fill"></i></a></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

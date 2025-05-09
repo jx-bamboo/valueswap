@@ -1,0 +1,75 @@
+<%= render 'layouts/header' %>
+<section class="banner-sec" id="particles-js1">
+	<div class="banner-item" style="background: url(<%= asset_path('background/banner_bg.jpg') %>) no-repeat center center /cover">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12 mx-auto main-fetured-item">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 col-sm-12">
+                  <%= render 'menu' %>
+                </div>
+                <div class="col-md-9 col-sm-12">
+                  <!-- 个人信息 -->
+                  <div class="col d-flex mb-3 mx-auto mx-sm-0 xs-count-down">
+                    <div class="px-3 d-flex flex-column justify-content-center">
+                      <div class="fw-bold mb-3">
+                        你好 · <%= current_user.email %>
+                      </div>
+                      <div>
+                        <%= link_to "javascript:void(0)", class: "text-decoration-none text-light d-block bg_gradient padding1 rounded-3", data: {"turbo-prefetch": "false", controller: "clipboard", action: "clipboard#copy"} do %>
+                          <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: current_user.invite_code %>
+                          <span class="bg-dark rounded p-2">邀请码: <span class="fw-bold"><%= current_user.invite_code %></span></span>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- api -->
+                  <div class="col mb-3 mx-auto mx-sm-0 xs-count-down">
+                    <div class="px-3">
+                      <div class="fw-bold mb-3">交易所 API</div>
+                      <%= turbo_frame_tag "ex_api" do %>
+                        <%= render "profile/ex_api", exchanges_api: @exchanges_api %>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <!-- 地址 -->
+                  <div class="col d-flex mb-3 mx-auto mx-sm-0 xs-count-down">
+                    <div class="px-3">
+                      <div class="fw-bold mb-3">地址</div>
+                      <%= turbo_frame_tag "w_add" do %>
+                        <% if current_user.user_address.present? %>
+                          <%= render "profile/w_add", data: @data %>
+                        <% else %>
+                          <%= link_to "申请地址", apply_address_profile_index_path, data: {"turbo-frame": "w_add"}, class: "btn-primary btn-sm text-light rounded px-2 py-1" %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+
+
+          
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<div id="liveAlertPlaceholder" class="position-fixed bottom-0 end-0 p-3 z-3"></div>
+
+<div class="blog-and-footer-area">
+	<%= render "layouts/footer" %>
+</div>

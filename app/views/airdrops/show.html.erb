@@ -1,0 +1,75 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="p-3">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @airdrop.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>所属网络</span>
+					<span class="text-capitalize"><%= @airdrop.network %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>项目名称</span>
+					<span><%= @airdrop.name %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>代币符号</span>
+					<span><%= @airdrop.symbol %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>代币总量</span>
+					<span><%= @airdrop.total_amount %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>奖励数量</span>
+					<span><%= @airdrop.reward_amount %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>开始时间</span>
+					<span><%= @airdrop.begin_time %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>结束时间</span>
+					<span><%= @airdrop.end_time %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>Logo</span>
+					<span>
+					  <% if @airdrop.logo.attached? %>
+							<%= image_tag @airdrop.logo, width: 32, class: "img-fluid" %>
+						<% else %>
+							<i class="bi bi-image text-muted" style="font-size: 32px;"></i>
+						<% end %>
+					</span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>项目标签</span>
+					<span><%= @airdrop.tag %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>官网</span>
+					<span><%= @airdrop.official_web %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>狀態</span>
+					<span><%= @airdrop.status %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>創建時間</span>
+					<span><%= @airdrop.created_at %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>项目简介</span>
+					<span><%= @airdrop.intro %></span>
+				</div>
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%= link_to "編輯", edit_airdrop_path(@airdrop), class: "btn btn-warning" %>&nbsp;
+		  <%= link_to "返回", airdrops_path, class: "btn btn-primary" %>&nbsp;
+		  <%= button_to "刪除", @airdrop, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "確認刪除？" } %>
+		</div>
+	</div>
+</div>

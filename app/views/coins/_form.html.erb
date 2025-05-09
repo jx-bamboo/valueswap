@@ -1,0 +1,55 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="fw-bold">添加币种 · Coin</div>
+    </div>
+    <%= form_with(model: coin) do |form| %>
+      <% if coin.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
+          <ul>
+            <% coin.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group mb-3">
+              <%= form.label :symbol, "币种简称", class: "form-label" %>
+              <%= form.text_field :symbol, class: "form-control", placeholder: "btc" %>
+              <small class="text-muted">简称必填。</small>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :name, "币种全称", class: "form-label" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "bitcoin" %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :quote_coin, "基础货币单位", class: "form-label" %>
+              <%= form.text_field :quote_coin, class: "form-control", placeholder: "usdt" %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :logo, "图标", class: "form-label" %>
+              <%= form.file_field :logo, class: "form-control" %>
+              <% if @coin.logo.present? %>
+                <%= image_tag @coin.logo, class: "img-fluid" %>
+              <% end %>
+            </div>
+
+          </div>
+        <div>
+      </div>
+      <div class="card-action">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to "返回", coins_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

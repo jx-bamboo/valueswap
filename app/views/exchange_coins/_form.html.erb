@@ -1,0 +1,58 @@
+
+ <div class="col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="fw-bold">添加交易所支持的币种</div>
+    </div>
+
+    <%= form_with(model: @exchange_coin, local: true) do |form| %>
+      <% if @exchange_coin&.errors&.any? || @errors&.any? %>
+        <div style="color: red">
+          <h2>保存时发生以下错误：</h2>
+          <ul>
+            <% (@exchange_coin&.errors&.full_messages || []).concat(@errors || []).each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- 选择交易所 -->
+            <div class="form-group mb-3">
+              <%= form.label :exchange_id, "交易所", class: "form-label" %>
+              <%= form.collection_select :exchange_id,
+                                        Exchange.all,
+                                        :id,
+                                        :name,
+                                        { prompt: "请选择交易所" },
+                                        { class: "exchange-select form-control" } %>
+              <small class="text-muted">请选择一个交易所。</small>
+            </div>
+
+            <!-- 选择币种（复选框） -->
+            <div class="form-group mb-3">
+              <%= form.label :coin_ids, "币种", class: "form-label" %>
+              <div class="form-control py-3" style="max-height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px;">
+                <% Coin.all.each do |coin| %>
+                  <div class="form-check">
+                    <%= check_box_tag 'exchange_coin[coin_ids][]', coin.id, false, class: "form-check-input" %>
+                    <%= label_tag "exchange_coin_coin_ids_#{coin.id}", coin.symbol, class: "form-check-label" %>
+                  </div>
+                <% end %>
+              </div>
+              <small class="text-muted">可选择多个币种。</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-action p-3">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to "返回", exchange_coins_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div> 

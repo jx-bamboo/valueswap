@@ -1,0 +1,44 @@
+<%= render 'layouts/header' %>
+<section class="banner-sec" id="particles-js1">
+	<div class="banner-item" style="background: url(<%= asset_path('background/banner_bg.jpg') %>) no-repeat center center /cover">
+		<div class="container">
+			<div class="row g-3">
+
+        <% if @funds.present? %>
+          <% @funds.each do |fund| %>
+            <div class="col-lg-4 col-md-6 wow fadeInUp " data-wow-duration="1.5s">
+              <div class="xs-count-down">
+                <h3 class="xs-single-title"><%= fund.name %></h3>
+                <div class="xs-progress-bar">
+                  <span class="progess-text-1">起投金额</span>
+                  <span class="progess-text-2"><%= fund.price %> (USDT)</span>
+                  <br/>
+                  <span class="progess-text-1">份数</span>
+                  <span class="progess-text-2"><%= fund.quantity %></span>
+                  <br/>
+                  <span class="progess-text-1">开始时间</span>
+                  <span class="progess-text-2"><%= fund.start_time.strftime("%Y.%m.%d %H:%M:%S") %></span>
+                </div>
+                <div class="xs-counter-list">
+                  <div class="text-light p-4"><%= fund.description %></div>
+                </div>
+                <!-- <div class="btn-wrapper text-center"><a href="/users/sign_in" target="_blank" class="btn btn-primary">购买</a></div> -->
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="col-sm-12 mx-auto main-fetured-item">
+            <div class="xs-count-down">
+              <h3 class="xs-single-title">沒有找到有效的基金信息</h3>
+            </div>
+          </div>
+        <% end %>
+        
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="blog-and-footer-area">
+	<%= render "layouts/footer" %>
+</div>

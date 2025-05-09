@@ -1,0 +1,192 @@
+<div class="sidebar" data-background-color="dark">
+	<div class="sidebar-logo">
+		<!-- Logo Header -->
+		<div class="logo-header" data-background-color="dark">
+			<a href="/" class="logo">
+				<%= image_tag "logo.svg", width: 40, class: "navbar-brand", alt: "navbar brand" %><span class="text-light">ValueSwap</span>
+			</a>
+			<div class="nav-toggle">
+				<button class="btn btn-toggle toggle-sidebar">
+					<i class="gg-menu-right"></i>
+				</button>
+				<button class="btn btn-toggle sidenav-toggler">
+					<i class="gg-menu-left"></i>
+				</button>
+			</div>
+			<button class="topbar-toggler more">
+				<i class="gg-more-vertical-alt"></i>
+			</button>
+		</div>
+		<!-- End Logo Header -->
+	</div>
+	
+	<div class="sidebar-wrapper scrollbar scrollbar-inner">
+		<!--  -->
+		<div class="sidebar-content">
+			<ul class="nav nav-secondary">
+				<li class="nav-item active">
+					<a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+						<i class="bi bi-house-door-fill"></i> <p>儀表盤</p> <span class="caret"></span>
+					</a>
+					<div class="collapse" id="dashboard">
+						<ul class="nav nav-collapse">
+							<li><a href="<%= admin_dashboard_index_path %>"><span class="sub-item">概覽</span></a></li>
+							<li><a href="<%= real_time_admin_dashboard_index_path %>"> <span class="sub-item">實時監控</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-section">
+					<span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+					<h4 class="text-section">交易模块</h4>
+				</li>
+
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#systems">
+						<i class="bi bi-pc-display-horizontal"></i>
+						<p>系統设置</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="systems">
+						<ul class="nav nav-collapse">
+							<li><a href="<%= exchanges_path %>"><span class="sub-item">添加交易所</span></a></li>
+							<li><a href="<%= coins_path %>"><span class="sub-item">添加资产</span></a></li>
+							<li><a href="<%= exchange_coins_path %>"><span class="sub-item">绑定交易所&资产</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#base"><i class="bi bi-people-fill"></i>
+						<p>用戶管理</p>
+						<span class="caret"></span>
+					</a>
+					
+					<div class="collapse" id="base">
+						<ul class="nav nav-collapse">
+							<li><a href="<%= admin_user_index_path %>"><span class="sub-item">用戶列表</span></a></li>
+							<li>
+								<a href="<%= user_exchanges_path %>">
+									<span class="sub-item">綁定交易所</span>
+								</a>
+							</li>
+							<li>
+								<a href="<%= user_exchange_coins_path %>">
+									<span class="sub-item">綁定交易對</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#sidebarLayouts">
+						<i class="bi bi-currency-exchange"></i>
+						<p>交易管理</p>
+						<span class="caret"></span>
+					</a>
+					
+					<div class="collapse" id="sidebarLayouts">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">现货交易</span></a></li>
+							<li><a href=""><span class="sub-item">合约交易</span></a></li>
+							<li><a href=""><span class="sub-item">交易紀錄</span></a></li>
+							<li><a href=""><span class="sub-item">策略配置</span></a></li>
+							<li><a href=""><span class="sub-item">回測與報告</span></a></li>
+							<li><a href=""><span class="sub-item">自動化交易</span></a></li>
+						</ul>
+					</div>
+				</li>
+
+				<li class="nav-section">
+					<span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+					<h4 class="text-section">信息模块</h4>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#forms">
+						<i class="bi bi-airplane-engines-fill"></i>
+						<p>空頭管理</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="forms">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">空頭信息</span></a></li>
+							<li><a href=""><span class="sub-item">操作流程</span></a></li>
+							<li><a href=""><span class="sub-item">獎勵紀錄</span></a></li>
+							<li><a href=""><span class="sub-item">空頭篩選</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#tables">
+						<i class="bi bi-bank2"></i>
+						<p>基金管理</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="tables">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">基金概覽</span></a></li>
+							<li><a href=""><span class="sub-item">投資紀錄</span></a></li>
+							<li><a href=""><span class="sub-item">收益跟蹤</span></a></li>
+							<li><a href=""><span class="sub-item">參數設置</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#maps">
+						<i class="bi bi-qr-code-scan"></i>
+						<p>代理管理</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="maps">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">代理列表</span></a></li>
+							<li><a href=""><span class="sub-item">佣金概覽</span></a></li>
+							<li><a href=""><span class="sub-item">提現申請</span></a></li>
+							<li><a href=""><span class="sub-item">活動規則</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#assets">
+						<i class="bi bi-currency-bitcoin"></i>
+						<p>資產管理</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="assets">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">資產概覽</span></a></li>
+							<li><a href=""><span class="sub-item">資金操作</span></a></li>
+							<li><a href=""><span class="sub-item">交易流水</span></a></li>
+							<li><a href=""><span class="sub-item">交易所配置</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				
+				
+				<li class="nav-item">
+					<a data-bs-toggle="collapse" href="#data_analysis">
+						<i class="bi bi-graph-up"></i>
+						<p>數據分析</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="data_analysis">
+						<ul class="nav nav-collapse">
+							<li><a href=""><span class="sub-item">用戶行為</span></a></li>
+							<li><a href=""><span class="sub-item">交易統計</span></a></li>
+							<li><a href=""><span class="sub-item">資產分布</span></a></li>
+							<li><a href=""><span class="sub-item">預測工具</span></a></li>
+						</ul>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>

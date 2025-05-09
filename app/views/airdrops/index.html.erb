@@ -1,0 +1,52 @@
+<% content_for :title, "Airdrops" %>
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="d-flex align-items-center">
+				<div class="fw-bold">空投 · airdrops</div>
+				<a href="<%= new_airdrop_path %>" class="btn btn-primary btn-sm ms-auto"><i class="bi bi-plus"></i>新增</a>
+			</div>
+		</div>
+		<div class="card-body">
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table class="table table-hover" role="grid">
+						<thead>
+							<tr class="text-nowrap" role="row">
+								<th>編號</th>
+								<th>所属网络</th>
+								<th>名称</th>
+								<th>Logo</th>
+								<th>项目网址</th>
+								<th>标签</th>
+								<th>創建時間</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @airdrops.each do |airdrop| %>
+								<tr>
+									<td><%= airdrop.id %></td>
+									<td><%= airdrop.network %></td>
+									<td><%= airdrop.name %></td>
+									<td>
+                    <% if airdrop.logo.attached? %>
+											<%= image_tag airdrop.logo, width: 32, class: "img-fluid" %>
+										<% else %>
+											<i class="bi bi-image text-muted" style="font-size: 32px;"></i>
+										<% end %>
+                  </td>
+									<td><%= airdrop.official_web %></td>
+									<td><%= airdrop.tag %></td>
+									<td><%= airdrop.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+									<td><a href="<%= airdrop_path(airdrop) %>"><i class="bi bi-eye-fill"></i></a></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

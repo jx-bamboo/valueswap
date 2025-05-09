@@ -1,0 +1,14 @@
+<% turbo_frame_tag "msg" do %>
+  <% if errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">Errors occurred:</h4>
+      <ul>
+        <% errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="alert alert-danger d-none" role="alert"></div>
+  <% end %>
+<% end %>

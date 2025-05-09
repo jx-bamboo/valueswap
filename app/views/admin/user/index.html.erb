@@ -1,0 +1,40 @@
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="fw-bold">用戶列表</div>
+		</div>
+
+		<div class="card-body">
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						
+						<thead>
+							<tr class="text-nowrap">
+								<th>編號</th>
+								<th>郵箱地址</th>
+								<th>手機號碼</th>
+								<th>角色</th>
+								<th>頭像</th>
+								<th>創建時間</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @all_users.each do |user|%>
+								<tr role="row">
+									<td class="sorting_1"><%= user.id %></td>
+									<td><%= user.email %></td>
+									<td><%= user.phone %></td>
+									<td><%= user.role %></td>
+									<td><%= user.avatar %></td>
+									<td><%= user.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

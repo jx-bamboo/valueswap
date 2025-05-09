@@ -1,0 +1,12 @@
+<% content_for :title, "Editing operation log" %>
+
+<h1>Editing operation log</h1>
+
+<%= render "form", operation_log: @operation_log %>
+
+<br>
+
+<div>
+  <%= link_to "Show this operation log", @operation_log %> |
+  <%= link_to "Back to operation logs", operation_logs_path %>
+</div>

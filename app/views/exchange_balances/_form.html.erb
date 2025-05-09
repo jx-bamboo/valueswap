@@ -1,0 +1,58 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="fw-bold">快照交易所资产</div>
+    </div>
+
+    <%= form_with(model: exchange_balance, data: { controller: "exb" }) do |form| %>
+      <% if exchange_balance.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(exchange_balance.errors.count, "error") %> prohibited this exchange_balance from being saved:</h2>
+          <ul>
+            <% exchange_balance.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- 第一模块：选择用户 -->
+            <div class="form-group">
+              <%= form.label :user_id, "选择用户", class: "form-label" %>
+              <%= form.collection_select :user_id, 
+                                        User.all, 
+                                        :id, 
+                                        :email,
+                                        { prompt: "请选择用户" }, 
+                                        { class: "user-select form-control", 
+                                          data: { exb_target: "user", 
+                                                  action: "change->exb#updateExchangeOptions" } } %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <!-- 第二模块：选择交易所 -->
+            <div class="form-group">
+              <%= form.label :user_exchange_id, "选择交易所", class: "form-label" %>
+              <%= form.select :user_exchange_id, 
+                              [],
+                              { prompt: "" }, 
+                              { class: "exchange-select form-control", 
+                                data: { exb_target: "exchange" },
+                                disabled: true } %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="p-3">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to "返回", exchange_balances_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

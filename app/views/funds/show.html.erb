@@ -1,0 +1,63 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="p-3">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @fund.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>名称</span>
+					<span class="text-capitalize"><%= @fund.name %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>起投资金</span>
+					<span><%= @fund.price %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>数量</span>
+					<span><%= @fund.quantity %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>开始时间</span>
+					<span><%= @fund.start_time %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>结束时间</span>
+					<span><%= @fund.end_time %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>官网</span>
+					<span><%= @fund.official_web %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>Logo</span>
+					<span>
+					  <% if @fund.logo.attached? %>
+							<%= image_tag @fund.logo, width: 32, class: "img-fluid" %>
+						<% else %>
+							<i class="bi bi-image text-muted" style="font-size: 32px;"></i>
+						<% end %>
+					</span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>狀態</span>
+					<span><%= @fund.status %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>創建時間</span>
+					<span><%= @fund.created_at %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>项目描述</span>
+					<span><%= @fund.description %></span>
+				</div>
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%= link_to "編輯", edit_fund_path(@fund), class: "btn btn-warning" %>&nbsp;
+		  <%= link_to "返回", funds_path, class: "btn btn-primary" %>&nbsp;
+		  <%= button_to "刪除", @fund, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "確認刪除？" } %>
+		</div>
+	</div>
+</div>

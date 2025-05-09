@@ -1,0 +1,71 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">绑定交易所 + 资产</div>
+    </div>
+
+    <%= form_with(model: user_exchange_coin, data: { controller: "uec" }) do |form| %>
+      <% if user_exchange_coin.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(user_exchange_coin.errors.count, "error") %> prohibited this trade from being saved:</h2>
+          <ul>
+            <% user_exchange_coin.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- 第一模块：选择用户 -->
+            <div class="form-group">
+              <%= form.label :user_id, "选择用户", class: "form-label" %>
+              <%= form.collection_select :user_id, 
+                                        User.all, 
+                                        :id, 
+                                        :email,
+                                        { prompt: "请选择用户" }, 
+                                        { class: "user-select form-control", 
+                                          data: { uec_target: "user", 
+                                                  action: "change->uec#updateExchangeOptions" } } %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <!-- 第二模块：选择交易所 -->
+            <div class="form-group">
+              <%= form.label :exchange_id, "选择交易所", class: "form-label" %>
+              <%= form.select :exchange_id, 
+                              [],
+                              { prompt: "请先选择用户" }, 
+                              { class: "exchange-select form-control", 
+                                data: { uec_target: "exchange", 
+                                        action: "change->uec#updateCoinOptions" }, 
+                                disabled: true } %>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <!-- 第三模块：选择币种 -->
+            <div class="form-group">
+              <%= form.label :coin_id, "选择币种", class: "form-label" %>
+              <%= form.select :coin_id, 
+                              [],
+                              { prompt: "请先选择交易所" }, 
+                              { class: "coin-select form-control", 
+                                data: { uec_target: "coin" }, 
+                                disabled: true } %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to "返回", user_exchange_coins_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

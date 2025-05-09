@@ -1,0 +1,56 @@
+<% content_for :title, "创建订单 · 开放" %>
+
+<div class="col-md-12"  data-controller="open-trade">
+  <div class="card shadow-sm">
+    <div class="card-header d-flex align-items-center">
+      <div class="fw-bold">创建 · 现货交易【开放模式】</div>
+      <a href="<%= trades_path %>" class="btn btn-sm ms-auto btn-primary"><i class="bi bi-arrow-left"></i> 返回</a>
+    </div>
+    <div class="card-body">
+      <!-- 用户选择 -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="user-select" class="form-label fw-bold">选择用户</label>
+          <select id="user-select" class="form-select shadow-sm" data-open-trade-target="userSelect" data-action="change->open-trade#userChanged">
+            <option value="">请选择用户</option>
+            <% @users.each do |user| %>
+              <option value="<%= user.id %>"><%= user.email %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="exchange-select" class="form-label fw-bold">选择交易所</label>
+          <select id="exchange-select" class="form-select shadow-sm" disabled data-open-trade-target="exchangeSelect" data-action="change->open-trade#exchangeChanged">
+            <option value="">请先选择用户</option>
+          </select>
+        </div>
+      </div>
+      
+      <%#= render "trades/open_assets_list" %>
+      <!-- <div id="asset-list" data-open-trade-target="assetList" class="row">
+        <p class="text-muted col-12"></p>
+      </div> -->
+      <%= turbo_frame_tag "asset-list" do %>
+        <p class="text-muted col-12" data-open-trade-target="assetList">请先选择交易所</p>
+      <% end %>
+
+      <!-- 错误模态框 -->
+      <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="errorModalLabel"><i class="fas fa-exclamation-circle me-2"></i>错误</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="modal-error-message"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,102 @@
+//
+.cred {border:0.1px solid red;}
+
+body {
+  font-family: -apple-system, "Helvetica Neue", "Helvetica", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", SimSun, sans-serif;
+  // overflow: hidden;
+}
+
+ul{
+  margin-bottom: 0;
+}
+
+.fs075{
+  font-size: 0.75rem;
+}
+
+.fs0875{
+  font-size: 0.875rem;
+}
+
+.scope:nth-child(1) {
+  width: 18rem;
+  transition: width 1s ease;
+  background: olive linear-gradient(180deg, #000 0%, #252525 100%);
+  a {
+    padding: 1rem;
+    transition: padding 1s ease;
+  }
+  a:hover {
+    background-color: #41403e;
+    svg,span {
+      color: #FEC863;
+    }
+  }
+}
+
+.scope:nth-child(2) {
+  background: olive linear-gradient(180deg, #e5e5e5 0%, #EFEFEF 100%);
+  // background-image: url(/assets/adminbg.jpg);
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
+
+@media (max-width: 1024px)  {
+  .scope:nth-child(1) {
+    width: 4rem;
+    // transition: width 1s ease;
+    a {
+      padding: 1.5rem 0.5rem;
+      // transition: padding 1s ease;
+    }
+    .s-title{
+      display: none;
+    }
+    transition: all 1s ease;
+  }
+}
+
+.preview-file{
+  opacity: 0;
+  // width: 120px;
+  height: 200px;
+  border-radius: 0.3em !important;
+  position: absolute;
+  top: 2em;
+}
+
+.pan0 {background: #8F7AF7;}
+.pan1 {background: #64C1AF;}
+.pan2 {background: #F3B866;}
+.pan3 {background: #E17D7C;}
+
+.bg-note-title {
+  background-color: #6ab0de;
+}
+
+.bg-note-content {
+  background-color: #e7f2fa;
+}
+
+.chat-title {
+  background-color: rgb(36, 47, 46);
+  color: #ccc;
+}
+
+.chat-body {
+  background-color: rgb(20, 20, 20);
+}
+
+.chat-content {
+  background-color: rgb(37, 37, 37);
+  color: #fff;
+}
+
+.chat-side {
+  background-color: rgb(28, 30, 62);
+}
+
+.turbo-progress-bar {
+  height: 0.75rem;
+}

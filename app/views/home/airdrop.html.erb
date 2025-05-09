@@ -1,0 +1,49 @@
+<%= render 'layouts/header' %>
+<section class="banner-sec" id="particles-js1">
+	<div class="banner-item pb-5" style="background: url(<%= asset_path('background/banner_bg.jpg') %>) no-repeat center center /cover">
+		<div class="container">
+			<div class="row g-3">
+				<!-- <div class="col-sm-12 mx-auto main-fetured-item">
+				</div> -->
+
+        <% if @airdrops.present? %>
+          <% @airdrops.each do |airdrop| %>
+            <div class="col-lg-4 col-md-6 wow fadeInUp " data-wow-duration="1.5s">
+              <div class="xs-count-down">
+                <h3 class="xs-single-title"><%= airdrop.name %></h3>
+                <div class="xs-progress-bar">
+                  <span class="progess-text-1">网络</span>
+                  <span class="progess-text-2"><%= airdrop.network %></span>
+                  <br/>
+                  <span class="progess-text-1">总量</span>
+                  <span class="progess-text-2"><%= airdrop.total_amount %></span>
+                  <br/>
+                  <span class="progess-text-1">預計空頭額度</span>
+                  <span class="progess-text-2"><%= airdrop.reward_amount %></span>
+                  <br/>
+                  <span class="progess-text-1">标签</span>
+                  <span class="progess-text-2"><%= airdrop.tag %></span>
+                </div>
+                <div class="xs-counter-list">
+                  <div class="text-light p-4 text-truncate"><%= airdrop.intro %></div> 
+                </div>
+                <div class="btn-wrapper text-center"><a href="<%= airdrop.official_web %>" target="_blank" class="btn btn-primary">發現更多</a></div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="col-sm-12 mx-auto main-fetured-item">
+            <div class="xs-count-down">
+              <h3 class="xs-single-title">沒有找到有效的空頭信息</h3>
+            </div>
+          </div>
+        <% end %>
+        
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="blog-and-footer-area">
+	<%= render "layouts/footer" %>
+</div>

@@ -1,0 +1,115 @@
+<head>
+	<%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+</head>
+
+<style>
+	.gradient-bottom-right {
+	  background-image: linear-gradient(to bottom right, #8957ff, #5c60f5, #ff579a) !important;
+	}
+	@media (min-width: 1200px) {
+	  .py-xl-10 {
+	    padding-top: 2.5rem !important;
+	    padding-bottom: 2.5rem !important;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .px-xl-20 {
+	    padding-left: 5rem !important;
+	    padding-right: 5rem !important;
+	  }
+	}
+	@media (min-width: 768px) {
+	  .w-md-50 {
+	    width: 50% !important;
+	  }
+	}
+	.py-10 {
+	  padding-top: 2.5rem !important;
+	  padding-bottom: 2.5rem !important;
+	}
+	.p-12 {
+	  padding: 3rem !important;
+	}
+	.h-rem-10 {
+	  height: 2.5rem !important;
+	}
+	.mt-16 {
+	  margin-top: 4rem !important;
+	}
+	.ls-tight {
+	  letter-spacing: -.025em !important;
+	}
+	@media (min-width: 1200px) {
+	  .pe-xl-24 {
+	    padding-right: 6rem !important;
+	  }
+	}
+	.text-opacity-75 {
+	  opacity: 0.75;
+	}
+	@media (min-width: 1200px) {
+	  .ps-xl-20 {
+	    padding-left: 5rem !important;
+	  }
+	}
+	.ps-16 {
+	  padding-left: 4rem !important;
+	}
+	.rounded-top-start-4 {
+	  border-top-left-radius: 1rem !important;
+	}
+	@media (min-width: 992px) {
+	  .rounded-top-start-lg-4 {
+	    border-top-left-radius: 1rem !important;
+	  }
+	}
+	@media (min-width: 992px) {
+	  .border-start-lg {
+	    border-left: 1px solid #e2e8f0 !important;
+	  }
+	}
+	.shadow-soft-5 {
+	  box-shadow: 0 32px 40px -2px rgba(10,22,70,.04) !important;
+	}
+	.bg-body {
+	  opacity: 1;
+	  background-color: rgba(255,255,255,1, 1) !important;
+	}
+	.h-rem-10 {
+	  height: 2.5rem !important;
+	}
+	.ls-tight {
+	  letter-spacing: -.025em !important;
+	}
+	.text-sm {
+	  font-size: .875rem !important;
+	}
+	.text-primary, .text-primary-hover:hover {
+	  color: rgba(rgba(137,87,255,1), 1) !important;
+	}
+	.form-check-label {
+	  font-size: .875rem;
+	  font-weight: 500;
+	}
+</style>
+
+<div class="row g-0 justify-content-center gradient-bottom-right start-purple middle-indigo end-pink">
+	<div class="col-md-6 col-lg-5 col-xl-5 position-fixed start-0 top-0 vh-100 overflow-y-hidden d-none d-lg-flex flex-lg-column">
+		<div class="p-12 py-xl-10 px-xl-20">
+			<a href="/"><%= image_tag "logo.svg", class: "h-rem-10", alt: "Logo" %><span class="text-light">VALUESWAP</span></a>
+			<div class="mt-16">
+				<h1 class="ls-tight fw-bolder display-6 text-white mb-5">管理世界頂級資產</h1>
+			</div>
+		</div>
+		<div class="mt-auto ps-16 ps-xl-20">
+			<%= image_tag "how-works/login-shot.png", class: "img-fluid rounded-top-start-4", alt: "Logo" %>
+		</div>
+	</div>
+	<div class="col-12 col-md-12 col-lg-7 offset-lg-5 min-vh-100 overflow-y-auto d-flex flex-column justify-content-center position-relative bg-body rounded-top-start-lg-4 border-start-lg shadow-soft-5">
+		<div class="w-md-50 mx-auto px-10 px-md-0 py-10">
+			
+			<%= yield %>
+				
+		</div>
+	</div>
+</div>

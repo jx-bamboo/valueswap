@@ -1,0 +1,50 @@
+<div class="mb-5">
+	<a class="d-inline-block d-lg-none mb-10" href="/">
+		<%= image_tag "logo.svg", class: "h-rem-10", alt: "Logo" %>
+	</a>
+	<div class="h3 text-dark">註冊新的帳戶</div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="mb-3">
+    <%= f.label :email, "郵箱", class: "text-dark fw-bold" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password, "密碼", class: "text-dark fw-bold" %>
+    <% if @minimum_password_length %>
+			<em>最少(<%= @minimum_password_length %>個字符)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation, "確認密碼", class: "text-dark fw-bold" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :invite_code, "邀請碼", class: "text-dark fw-bold" %>
+    <%= f.text_field :invite_code, autocomplete: "code", class: "form-control", placeholder: "邀請碼", value: @invite_code %>
+  </div>
+
+
+	<div class="my-2 text-sm text-muted">
+		<span>已經有帳戶？</span> 點擊這裡
+		<a href="/users/sign_in" class="fw-semibold">登錄</a>。 
+    返回
+    <a class="icon-link icon-link-hover" href="/">
+      首頁
+      <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+      </svg>
+    </a>
+	</div>
+
+  <div>
+    <%= f.submit "註冊", class: "btn btn-dark w-100" %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing airdrop" %>
+
+<h1>Editing airdrop</h1>
+
+<%= render "form", airdrop: @airdrop %>
+
+<br>
+
+<div>
+  <%= link_to "Show this airdrop", @airdrop %> |
+  <%= link_to "Back to airdrops", airdrops_path %>
+</div>

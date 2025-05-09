@@ -1,0 +1,59 @@
+<div class="col-sm-12">
+  <div class="card">
+
+    <div class="card-header">
+      <div class="fw-bold">添加交易所 · Exchange</div>
+    </div>
+
+    <%= form_with(model: exchange) do |form| %>
+      <% if exchange.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(exchange.errors.count, "error") %> prohibited this exchange from being saved:</h2>
+
+          <ul>
+            <% exchange.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group mb-3">
+              <%= form.label :name, "交易所名称", class: "form-label" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "binance" %>
+              <small class="text-muted">名称必填(binance, okx)。</small>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :official_web, "交易所网址", class: "form-label" %>
+              <%= form.text_field :official_web, class: "form-control", placeholder: "https://www.binance.com" %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :description, "备注信息", class: "form-label" %>
+              <%= form.text_field :description, class: "form-control", placeholder: "可选" %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :logo, "图标", class: "form-label" %>
+              <%= form.file_field :logo, class: "form-control" %>
+              <% if @exchange.logo.present? %>
+                <%= image_tag @exchange.logo, class: "img-fluid" %>
+              <% end %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card-action p-3">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to "返回", exchanges_path, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

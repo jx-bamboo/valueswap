@@ -1,0 +1,44 @@
+<% content_for :title, "Exchange coins" %>
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <div class="fw-bold">交易所 + 资产</div>
+        <a href="<%= new_exchange_coin_path %>" class="btn btn-primary btn-sm ms-auto"><i class="bi bi-plus"></i>新增</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="table-responsive">
+          <table class="table table-hover" role="grid">
+            <thead>
+              <tr class="text-nowrap" role="row">
+                <th scope="col">交易所</th>
+                <th scope="col">资产</th>
+                <th scope="col">創建時間</th>
+                <th scope="col">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @grouped_exchange_coins.each do |exchange_name, coins| %>
+                <tr>
+                  <td rowspan="<%= coins.size %>" class="align-middle text-capitalize"><%= exchange_name %></td>
+                  <td><%= coins.first.coin.symbol %></td>
+                  <td><%= coins.first.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+                  <td><a href="<%= exchange_coin_path(coins.first) %>"><i class="bi bi-eye-fill"></i></a></td>
+                </tr>
+                <% coins.drop(1).each do |exchange_coin| %>
+                  <tr>
+                    <td><%= exchange_coin.coin.symbol %></td>
+                    <td><%= exchange_coin.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+                    <td><a href="<%= exchange_coin_path(exchange_coin) %>"><i class="bi bi-eye-fill"></i></a></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

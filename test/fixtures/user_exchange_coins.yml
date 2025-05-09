@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  balance: 9.99
+  last_updated: 2025-03-31 18:40:11
+  user_exchange: one
+  coin: one
+
+two:
+  balance: 9.99
+  last_updated: 2025-03-31 18:40:11
+  user_exchange: two
+  coin: two

@@ -1,0 +1,37 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="p-3">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @address.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>网络</span>
+					<span class="text-capitalize"><%= @address.network %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>地址</span>
+					<span><%= @address.address %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>私钥</span>
+					<span><%= mask_string @address.pri_key_encrypted %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>狀態</span>
+					<span><%= @address.status %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>創建時間</span>
+					<span><%= @address.created_at %></span>
+				</div>
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%#= link_to "編輯", edit_address_path(@address), class: "btn btn-warning" %>
+		  <%= link_to "返回", addresses_path, class: "btn btn-primary" %>&nbsp;
+		  <%= button_to "刪除", @address, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "確認刪除？" } %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="specification-list">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @trade.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>用户</span>
+					<span><%= @trade.user.email %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>交易类型</span>
+					<span><%= @trade.trade_type %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>买卖方向</span>
+					<span><%= @trade.side %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>现价市价</span>
+					<span><%= @trade.order_type %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>价格</span>
+					<span><%= @trade.price %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>数量</span>
+					<span><%= @trade.quantity %></span>
+				</div>
+        <div class="d-flex justify-content-between mb-3">
+					<span>交易所交易ID</span>
+					<span><%= @trade.order_id %></span>
+				</div>
+        <%
+=begin%>
+ <div class="d-flex justify-content-between mb-3">
+					<span>交易所响应日志</span>
+					<span><%= @trade.ex_json %></span>
+				</div> 
+<%
+=end%>
+        
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%= link_to "返回", trades_path, class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>

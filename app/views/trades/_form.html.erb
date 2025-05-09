@@ -1,0 +1,161 @@
+<% content_for :title, "创建订单 · 严格" %>
+
+<div class="col-md-12">
+  <div class="card shadow-sm">
+    <div class="card-header d-flex align-items-center">
+      <div class="fw-bold">创建 · 现货交易【严格模式】</div>
+      <a href="<%= trades_path %>" class="btn btn-sm ms-auto btn-primary"><i class="bi bi-arrow-left"></i> 返回</a>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: trade, class: "trade-form", data: { controller: "trade-form" }) do |form| %>
+        <% if trade.errors.any? %>
+          <div style="color: red">
+            <!-- <h2><%#= pluralize(trade.errors.count, "error") %> prohibited this trade from being saved:</h2> -->
+
+            <ul>
+              <% trade.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row g-4">
+          <!-- 交易账户 -->
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <%= form.label :user_id, "用户", class: "form-label fw-bold" %>
+              <%= form.select :user_id,
+                             @users.map { |u| [u.email, u.id] },
+                             { prompt: "选择用户" },
+                             class: "form-select",
+                             id: "user-select",
+                             required: true,
+                             data: { target: "trade-form.userSelect", action: "change->trade-form#userChanged" } %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :user_exchange_id, "交易所", class: "form-label fw-bold" %>
+              <%#= form.select :user_exchange_id,
+                             [],
+                             { prompt: "" },
+                             class: "form-select",
+                             id: "exchange-select",
+                             disabled: true,
+                             required: true,
+                             data: { target: "trade-form.exchangeSelect", action: "change->trade-form#exchangeChanged" } %>
+              <%= form.select :user_exchange_id,
+                              @user_exchanges.map { |ue| [ue.exchange.name, ue.id] },
+                              { prompt: @trade.user_id ? "请选择交易所" : "请先选择用户", selected: @trade.user_exchange_id },
+                              class: "form-select",
+                              id: "exchange-select",
+                              disabled: @user_exchanges.empty?,
+                              required: true,
+                              data: { target: "trade-form.exchangeSelect", action: "change->trade-form#exchangeChanged", selected: @trade.user_exchange_id } %>
+            </div>
+
+            
+            <div class="form-group mb-3">
+              <%= form.label :coin_id, "资产", class: "form-label fw-bold" %>
+              <%#= form.select :coin_id,
+                            [],
+                            { prompt: "" },
+                            class: "form-select",
+                            id: "coin-select",
+                            disabled: true,
+                            required: true,
+                            data: { target: "trade-form.coinSelect", action: "change->trade-form#coinChanged" } %>
+              <%= form.select :coin_id,
+                             [],
+                             { prompt: @trade.user_exchange_id ? "请选择币种" : "请先选择交易所", selected: @trade.coin_id },
+                             class: "form-select",
+                             id: "coin-select",
+                             disabled: @coins.empty?,
+                             required: true,
+                             data: { target: "trade-form.coinSelect", action: "change->trade-form#coinChanged", selected: @trade.coin_id } %>
+              <div class="form-text text-muted d-flex justify-content-between">
+                <div>余额：<span id="balance-amount" data-trade-form-target="balanceAmount"></span></div>
+                <div>现价：<span id="price-amount" data-trade-form-target="priceAmount"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 交易参数 -->
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6 form-group mb-3">
+                <%= form.label :side, "买卖方向", class: "form-label fw-bold" %>
+                <div>
+                  <%= form.radio_button :side, "buy", class: "btn-check", id: "side-buy", required: true %>
+                  <label class="btn btn-outline-success" for="side-buy">买入</label>
+                  <%= form.radio_button :side, "sell", class: "btn-check", id: "side-sell", required: true %>
+                  <label class="btn btn-outline-danger" for="side-sell">卖出</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 form-group mb-3">
+                <%= form.label :order_type, "订单类型", class: "form-label fw-bold" %>（<small class="text-muted">默认限价</small>）
+                <div>
+                  <%= form.radio_button :order_type, "limit", checked: true, class: "btn-check", id: "order-type-limit" %>
+                  <label class="btn" for="order-type-limit">限价</label>
+                  <%#= form.radio_button :order_type, "market", class: "btn-check", id: "order-type-market" %>
+                  <!-- <label class="btn" for="order-type-market">市价</label> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :price, "价格 (USDT)", class: "form-label fw-bold" %>
+              <%= form.number_field :price,
+                                   step: 0.01,
+                                   min: 0,
+                                   class: "form-control",
+                                   placeholder: "如 50000.00",
+                                   required: true,
+                                   data: { target: "trade-form.price", action: "input->trade-form#updateTotal" } %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :quantity, "数量", class: "form-label fw-bold" %>
+              <%= form.number_field :quantity,
+                                   step: 0.0001,
+                                   min: 0,
+                                   class: "form-control",
+                                   placeholder: "如 0.01",
+                                   required: true,
+                                   data: { target: "trade-form.quantity", action: "input->trade-form#updateTotal" } %>
+            </div>
+
+          </div>
+
+          <!-- 订单摘要 -->
+          <div class="col-12">
+            <div class="alert alert-info" id="order-summary" style="display: none;" data-trade-form-target="orderSummary">
+              <strong>订单总金额：</strong> <span id="total-amount" data-trade-form-target="totalAmount">0.00</span> USDT
+            </div>
+            <div class="text-danger" id="error-message"></div>
+          </div>
+
+          <!-- 提交 -->
+          <div class="col-12 text-end">
+            <%= form.submit "提交交易", class: "btn btn-primary px-4", id: "submit-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="errorModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">错误</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-error-message"></p>
+      </div>
+    </div>
+  </div>
+</div>

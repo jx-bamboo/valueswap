@@ -1,0 +1,16 @@
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "@hotwired/turbo-rails"
+import "controllers"
+import "@popperjs/core"
+import "bootstrap"
+
+// import "jquery321"
+// import "jquery_magnific"
+// import "owl_Carousel"
+// import "navigation"
+// import "jquery_appear"
+// import "wow_min"
+// import "chart"
+// import "particles"
+// import "smooth_scroling"
+import "main"

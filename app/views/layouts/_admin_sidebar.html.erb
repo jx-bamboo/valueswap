@@ -1,0 +1,151 @@
+<nav class="sidebar d-flex align-items-start flex-column" id="sidebar">
+  <div class="p-3 d-flex justify-content-between align-items-center w-100">
+    <a href="/" class="alogo text-decoration-none">
+      <%= image_tag "logo.svg", width: 40, class: "navbar-brand", alt: "navbar brand" %>
+      <span class="text-light sidebar-brand">ValueSwap</span>
+    </a>
+    <span class="toggle-btn">
+      <i class="bi bi-list"></i>
+    </span>
+  </div>
+  <ul class="nav flex-column w-100">
+    <li class="nav-item">
+      <a class="nav-link active" href="<%= admin_dashboard_index_path %>">
+        <i class="bi bi-house-door-fill"></i>
+        <span class="nav-text fw-bold">仪表盘</span>
+      </a>
+    </li>
+
+    <li><hr/></li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="true">
+        <i class="bi bi-gear-fill"></i>
+        <span class="nav-text fw-bold">系统设置</span>
+      </a>
+      <div class="collapse nav-child show" id="setting">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= exchanges_path %>">添加交易所</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= coins_path %>">添加资产</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= exchange_coins_path %>">添加交易所+资产</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#userMenu" aria-expanded="true">
+        <i class="bi bi-people-fill"></i>
+        <span class="nav-text fw-bold">用户管理</span>
+      </a>
+      <div class="collapse nav-child show" id="userMenu">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= admin_user_index_path %>">用户列表</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= user_exchanges_path %>">绑定交易所</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= exchange_balances_path %>">快照交易所</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#orderMenu" aria-expanded="true">
+        <i class="bi bi-currency-exchange"></i>
+        <span class="nav-text fw-bold">交易管理</span>
+      </a>
+      <div class="collapse nav-child show" id="orderMenu">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+              <a class="nav-link" href="<%= new_trade_path %>">现货交易【严格】</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="<%= open_trades_path %>">现货交易【开放】</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="<%= trades_path %>">交易记录</a>
+          </li>
+          <%
+=begin%>
+ <li class="nav-item">
+              <a class="nav-link" href="#">合约交易</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">交易记录</a>
+          </li> 
+<%
+=end%>
+          <%
+=begin%>
+ <li class="nav-item"><a class="nav-link" href=""><span class="sub-item">策略配置</span></a></li>
+          <li class="nav-item"><a class="nav-link" href=""><span class="sub-item">回測與報告</span></a></li>
+          <li class="nav-item"><a class="nav-link" href=""><span class="sub-item">自動化交易</span></a></li> 
+<%
+=end%>
+        </ul>
+      </div>
+    </li>
+
+    <li><hr/></li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="<%= addresses_path %>">
+        <i class="bi bi-currency-bitcoin"></i>
+        <span class="nav-text fw-bold">地址管理</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= funds_path %>">
+        <i class="bi bi-bank2"></i>
+        <span class="nav-text fw-bold">基金管理</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= airdrops_path %>">
+        <i class="bi bi-airplane-engines-fill"></i>
+        <span class="nav-text fw-bold">空投管理</span>
+      </a>
+    </li>
+    <%
+=begin%>
+ <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-qr-code-scan"></i>
+        <span class="nav-text fw-bold">代理管理</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-graph-up"></i>
+        <span class="nav-text fw-bold">数据分析</span>
+      </a>
+    </li> 
+<%
+=end%>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-question-circle-fill"></i>
+        <span class="nav-text fw-bold">帮助管理</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="sidebar-footer mt-auto w-100">
+		<%= link_to destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete, turbo_confirm: "確認退出？" }, method: :delete do %>
+      <i class="bi bi-box-arrow-right"></i>
+      <span class="nav-text fw-bold">
+        登出
+      </span>
+    <% end %>
+  </div>
+</nav>

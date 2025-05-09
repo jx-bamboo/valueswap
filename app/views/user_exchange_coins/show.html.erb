@@ -1,0 +1,33 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="specification-list">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @user_exchange_coin.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>用户</span>
+					<span><%= @user_exchange_coin.user.email %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>交易所</span>
+					<span><%= @user_exchange_coin.exchange.name %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>交易币对</span>
+					<span><%= @user_exchange_coin.coin.symbol %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>創建時間</span>
+					<span><%= @user_exchange_coin.created_at %></span>
+				</div>
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%= link_to "編輯", edit_user_exchange_coin_path(@user_exchange_coin), class: "btn btn-warning" %>&nbsp;
+		  <%= link_to "返回", user_exchange_coins_path, class: "btn btn-primary" %>&nbsp;
+		  <%= button_to "刪除", @user_exchange_coin, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "確認刪除？" } %>
+		</div>
+	</div>
+</div>

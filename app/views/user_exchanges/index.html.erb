@@ -1,0 +1,57 @@
+<% content_for :title, "User exchanges" %>
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <div class="fw-bold">用户 + 交易所</div>
+        <a href="<%= new_user_exchange_path %>" class="btn btn-primary btn-sm ms-auto"><i class="bi bi-plus"></i>新增</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table table-hover" role="grid">
+              <thead>
+                <tr class="text-nowrap">
+                  <th>用户</th>
+                  <th>交易所信息</th>
+                  <th>創建時間</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @grouped_exchanges.each do |email, exchanges| %>
+                  <tr>
+                    <td rowspan="<%= exchanges.size %>" class="align-middle"><%= email %></td>
+                    <td>
+                      <div class="text-capitalize"><strong>交易所:</strong> <%= exchanges.first.exchange.name %></div>
+                      <div><strong>API Key:</strong> <%= mask_string exchanges.first.api_key %></div>
+                      <div><strong>API Secret:</strong> <%= mask_string exchanges.first.api_secret %></div>
+                      <div><strong>备注:</strong> <%= exchanges.first.memo %></div>
+                    </td>
+                    <td><%= exchanges.first.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+                    <td><a href="<%= user_exchange_path(exchanges.first) %>"><i class="bi bi-eye-fill"></i></a></td>
+                  </tr>
+                  <% exchanges.drop(1).each do |user_exchange| %>
+                    <tr>
+                      <td>
+                        <div class="text-capitalize"><strong>交易所:</strong> <%= user_exchange.exchange.name %></div>
+                        <div><strong>API Key:</strong> <%= user_exchange.api_key %></div>
+                        <div><strong>API Secret:</strong> <%= user_exchange.api_secret %></div>
+                        <div><strong>备注:</strong> <%= user_exchange.memo %></div>
+                      </td>
+                      <td><%= user_exchange.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+                      <td><a href="<%= user_exchange_path(user_exchange) %>"><i class="bi bi-eye-fill"></i></a></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,205 @@
+<style>
+	@media (max-width: 991px) {
+		#navbarCollapse {
+			width: 100%;
+			opacity: 0.9;
+			background-color: #010029;
+		}
+	}
+	
+</style>
+
+<script>
+	// document.addEventListener('DOMContentLoaded', function () {
+	//   const header = document.querySelector('.header');
+	//   const stickyOffset = header.offsetTop;
+	
+	//   window.addEventListener('scroll', function () {
+	//     if (window.scrollY > stickyOffset) {
+	//       header.classList.add('sticky');
+	//     } else {
+	//       header.classList.remove('sticky');
+	//     }
+	//   });
+	// });
+</script>
+
+<header class="header header-static navbar-sticky navbar-light">
+	<!-- Logo Nav Start -->
+	<nav class="navbar navbar-expand-lg navbar-dark navigation">
+		<div class="container">
+				
+			<a class="navbar-brand" href="/"><%= image_tag "logo.svg", width: 80, alt: "Logo" %></a>
+			
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse nav-menus-wrapper xs-menu rounded" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll navbar-nav-scroll ms-auto nav-menu">
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="/">首頁</a>
+					</li>
+					<!-- Menu item 1 Demos-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="demosMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">交易</a>
+						<div class="dropdown-menu pb-3 pb-lg-0 " aria-labelledby="demosMenu">
+							<div class="d-block d-sm-flex ">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-3">
+									<li class="dropdown-header">策略中心</li>
+									<li> <a class="dropdown-item active" href="index.html">量化策略<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="index-2.html">AI策略</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-3">
+									<li class="dropdown-header mt-3 mt-sm-0">執行管理</li>
+									<li> <a class="dropdown-item" href="index-6.html">手動交易</a> </li>
+									<li> <a class="dropdown-item" href="index-7.html">自動化交易</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-3">
+									<li class="dropdown-header mt-3 mt-sm-0">分析工具</li>
+									<li> <a class="dropdown-item" href="index-6.html">回測</a> </li>
+									<li> <a class="dropdown-item" href="index-7.html">監控</a> </li>
+									<li> <a class="dropdown-item" href="index-8.html">預測</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-3">
+									<li class="dropdown-header mt-3 mt-sm-0">報告與優化</li>
+									<li> <a class="dropdown-item" href="index-6.html">交易報告</a> </li>
+									<li> <a class="dropdown-item" href="index-7.html">參數調整</a> </li>
+								</ul>
+							</div>
+							<!-- mega menu Bottom -->
+							<!-- <div class="w-100 bg-grad pattern-overlay-2 p-4 mt-3 all-text-white d-none d-lg-flex">
+								<div class="align-self-center me-4">
+									<h4 class="mb-0">Checkout the doc!</h4>
+									<p class="mb-0 small">For better understanding of theme standard</p>
+								</div>
+								<a href="https://wizixo.webestica.com/documentation/" target="_blank" class="btn btn-outline-white btn-sm mb-0 align-self-center ms-auto">Read more!</a>
+							</div> -->
+						</div>
+					</li>
+					<!-- Menu item 2 Blog-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="airdropMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">空頭</a>
+						<div class="dropdown-menu pb-3 pb-lg-0" aria-labelledby="airdropMenu">
+							<div class="d-block d-sm-flex">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header">情報</li>
+									<li> <a class="dropdown-item active" href="<%= airdrop_home_index_path %>">空頭列表<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="">最新動態</a> </li>
+									<li> <a class="dropdown-item" href="">篩選工具</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">操作</li>
+									<li> <a class="dropdown-item" href="">參與空投</a> </li>
+									<li> <a class="dropdown-item" href="">任務管理</a> </li>
+									<li> <a class="dropdown-item" href="">獎勵紀錄</a> </li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!-- Menu item 3 Pages-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">基金</a>
+						<div class="dropdown-menu pb-3 pb-lg-0" aria-labelledby="pagesMenu">
+							<div class="d-block d-sm-flex">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-2">
+									<li class="dropdown-header">基金產品</li>
+									<li> <a class="dropdown-item active" href="">基金概覽<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="">基金詳情</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-2">
+									<li class="dropdown-header mt-3 mt-sm-0">投資管理</li>
+									<li> <a class="dropdown-item" href="">購買基金</a> </li>
+									<li> <a class="dropdown-item" href="">贖回基金</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-2">
+									<li class="dropdown-header mt-3 mt-sm-0">收益跟蹤</li>
+									<li> <a class="dropdown-item" href="">收益報表</a> </li>
+									<li> <a class="dropdown-item" href="">歷史紀錄</a> </li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!-- Menu item 4 Portfolio-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="portfolioMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">代理計劃</a>
+						<div class="dropdown-menu dropdown-menu-end pb-3 pb-lg-0" aria-labelledby="portfolioMenu">
+							<div class="d-block d-sm-flex">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header">邀請管理</li>
+									<li> <a class="dropdown-item active" href="">邀請鏈接<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="">被邀請人列表</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">佣金體系</li>
+									<li> <a class="dropdown-item" href="">佣金概覽</a> </li>
+									<li> <a class="dropdown-item" href="">提現申請</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">活動規則</li>
+									<li> <a class="dropdown-item" href="">計劃說明</a> </li>
+									<li> <a class="dropdown-item" href="">等級權限</a> </li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!-- Menu item 5 Elements-->
+					<li class="nav-item dropdown megamenu">
+						<a class="nav-link dropdown-toggle" href="#" id="elementsMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">幫助</a>
+						<div class="dropdown-menu dropdown-menu-end pb-3 pb-lg-0" aria-labelledby="elementsMenu">
+							<div class="d-block d-sm-flex">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header">常見問題</li>
+									<li> <a class="dropdown-item active" href="">帳戶相關<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="">交易相關</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">使用指南</li>
+									<li> <a class="dropdown-item" href="">新手教程</a> </li>
+									<li> <a class="dropdown-item" href="">視頻演示</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">聯繫我們</li>
+									<li> <a class="dropdown-item" href="">在線客服</a> </li>
+									<li> <a class="dropdown-item" href="">提交工單</a> </li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!-- Menu item 6 Docs-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="docMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">錢包</a>
+						<div class="dropdown-menu dropdown-menu-end pb-3 pb-lg-0" aria-labelledby="elementsMenu">
+							<div class="d-block d-sm-flex">
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header">資產概覽</li>
+									<li> <a class="dropdown-item active" href="">餘額查詢<span class="badge bg-success ms-2">Hot</span></a> </li>
+									<li> <a class="dropdown-item" href="">資產統計</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">資金操作</li>
+									<li> <a class="dropdown-item" href="">充值</a> </li>
+									<li> <a class="dropdown-item" href="">提現</a> </li>
+									<li> <a class="dropdown-item" href="">轉帳</a> </li>
+								</ul>
+								<ul class="list-unstyled w-100 w-sm-50 pe-0 pe-lg-5">
+									<li class="dropdown-header mt-3 mt-sm-0">交易紀錄</li>
+									<li> <a class="dropdown-item" href="">資金流水</a> </li>
+									<li> <a class="dropdown-item" href="">狀態查詢</a> </li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="navbar-nav ps-2">
+				<!-- <div class="nav-item d-none d-sm-inline-block align-self-center"> -->
+				<div class="nav-item d-sm-inline-block align-self-center">
+					<a href="<%= admin_dashboard_index_path %>" class="px-2 py-1 rounded">個人中心</a>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+</header>

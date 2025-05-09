@@ -1,0 +1,42 @@
+<%= form_with(model: operation_log) do |form| %>
+  <% if operation_log.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(operation_log.errors.count, "error") %> prohibited this operation_log from being saved:</h2>
+
+      <ul>
+        <% operation_log.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :operation_type, style: "display: block" %>
+    <%= form.text_field :operation_type %>
+  </div>
+
+  <div>
+    <%= form.label :detail, style: "display: block" %>
+    <%= form.text_field :detail %>
+  </div>
+
+  <div>
+    <%= form.label :ip, style: "display: block" %>
+    <%= form.text_field :ip %>
+  </div>
+
+  <div>
+    <%= form.label :user_agent, style: "display: block" %>
+    <%= form.text_field :user_agent %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

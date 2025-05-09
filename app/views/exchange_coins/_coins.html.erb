@@ -1,0 +1,10 @@
+<div style="max-height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px;">
+  <% Coin.all.each do |coin| %>
+    <div class="form-check">
+      <%= check_box_tag 'exchange_coin[coin_ids][]', coin.id, false,
+                        class: "form-check-input",
+                        disabled: disabled_coin_ids.include?(coin.id) %>
+      <%= label_tag "exchange_coin_coin_ids_#{coin.id}", coin.symbol, class: "form-check-label" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,301 @@
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong>browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience.</p>
+<![endif]-->
+
+<!-- preloader -->
+<!-- <div class="preloader" id="preloader">
+	<svg class="xs-preload" viewBox="0 0 120 120" width="120px" height="120px">
+		<circle class="inner" cx="60" cy="60" r="32"/><circle class="middle" cx="60" cy="60" r="38"/>
+		<circle class="outer" cx="60" cy="60" r="44"/>
+	</svg>
+	<a class="cencel-preloader" href="">Cancel Preloader</a>
+</div> -->
+<!-- preloader end -->
+
+<!-- <div class="search-wrap">
+	<form class="search-inner" id="main_search" method="get">
+		<input id="search_text" type="search" placeholder="Search..." autocomplete="off">
+		<button id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+	</form>
+</div> -->
+
+<!-- offset cart strart -->
+<!-- sidebar cart item -->
+<!-- <div class="xs-sidebar-group cart-group">
+		<div class="xs-overlay xs-bg-black"></div>
+		<div class="xs-sidebar-widget">
+				<div class="sidebar-widget-container">
+						<div class="widget-heading media">
+								<div class="media-body">
+									<a href="#" class="close-side-widget"><i class="icon icon-cross"></i></a>
+								</div>
+						</div>
+						<div class="xs-empty-content">
+								<h3 class="widget-title">Shopping cart</h3>
+								<h4 class="xs-title">No products in the cart.</h4>
+								<p class="empty-cart-icon"><i class="icon icon-shopping-cart"></i></p>
+								<p class="xs-btn-wraper"><a class="btn btn-primary" href="#">Return To Shop</a></p>
+						</div>
+				</div>
+		</div>
+</div> -->
+<!-- END sidebar cart item -->
+<!-- END offset cart strart -->
+
+<!-- sidebar cart item -->
+<%
+=begin%>
+<div class="xs-sidebar-group info-group">
+		<div class="xs-overlay xs-bg-black"></div>
+		<div class="xs-sidebar-widget">
+				<div class="sidebar-widget-container">
+						<div class="widget-heading"><a href="#" class="close-side-widget"><i class="icon icon-cross"></i></a></div>
+						<div class="sidebar-textwidget">
+								<div class="sidebar-logo-wraper"><img src="assets/images/sidebar_logo_1.png" alt="sidebar logo"> <%= image_tag "sidebar_logo_1.png", alt: "sidebar logo" %></div>
+								<p>Far far away,behind the word moun tains,far from the countries Vokalia and Consonantia,there live the blind texts. Separated they live in Bookmarksgrove right at the coast of </p>
+								<ul class="sideabr-list-widget">
+										<li>
+												<div class="media">
+														<div class="d-flex"><i class="icon icon-placeholder2"></i></div>
+														<div class="media-body">
+																<p>759 Pinewood Avenue</p><span>Marquette,Michigan</span></div>
+												</div>
+												<!-- address 1 -->
+										</li>
+										<li>
+												<div class="media">
+														<div class="d-flex"><i class="icon icon-email2"></i></div>
+														<div class="media-body"><a href="mailto:info@domain.com">info@domain.com</a><span>Online Support</span></div>
+												</div>
+												<!-- address 1 -->
+										</li>
+										<li>
+												<div class="media">
+														<div class="d-flex"><i class="icon icon-phone-call2"></i></div>
+														<div class="media-body">
+																<p>906-624-2565</p><span>Mon-Fri 8am-5pm</span></div>
+												</div>
+												<!-- address 1 -->
+										</li>
+								</ul>
+								<!-- .sideabr-list-widget -->
+								<div class="subscribe-from">
+										<p>Get Subscribed!</p>
+										<form action="#" method="POST" id="subscribe-form" class="subscribe-form"><label for="sub-input"></label>
+												<div class="form-group"><input type="email" name="email" id="sub-input" placeholder="Enter your mail here" class="form-control"><button class="sub-btn" type="submit"><i class="icon icon-arrow-right"></i></button></div>
+										</form>
+								</div>
+								<ul class="social-list version-2">
+										<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+										<li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="#" class="vimeo"><i class="fa fa-vimeo"></i></a></li>
+								</ul>
+								<!-- .social-list -->
+								<div class="text-center"><a href="#" class="btn btn-primary">Purchase Now</a></div>
+						</div>
+				</div>
+		</div>
+</div>
+<%
+=end%>
+<!-- END sidebar widget item -->
+<!-- END offset cart strart -->
+
+<%= render "layouts/header" %>
+
+<%
+=begin%>
+<!-- header section start -->
+<header class="header fixed-top">
+	<div class="container">
+		<nav id="navigation1" class="navigation">
+				<div class="nav-header">
+					<a class="nav-brand" href="index.html"><%= image_tag "trypto_logo_blue.png" %></a>
+					<div class="nav-toggle">menu</div>
+				</div>
+				
+				<div class="nav-menus-wrapper xs-menu">
+						<ul class="header-right align-to-right">
+								<li class="language"><a href="#modal-popup-1" class="xs-modal-popup"><%= image_tag "english.png" %>EN </a>
+										<!-- xs modal -->
+										<div class="zoom-anim-dialog mfp-hide modal-language" id="modal-popup-1">
+												<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+																<div class="language-content">
+																		<p>Switch The Language</p>
+																		<ul class="flag-lists">
+																				<li><a href="#"><%= image_tag "flags/006-united-states.svg" %><span>English</span></a></li>
+																				<li><a href="#"><%= image_tag "flags/002-canada.svg" %><span>English</span></a></li>
+																				<li><a href="#"><%= image_tag "flags/003-vietnam.svg" %><span>Vietnamese</span></a></li>
+																				<li><a href="#"><%= image_tag "flags/004-france.svg" %><span>French</span></a></li>
+																				<li><a href="#"><%= image_tag "flags/005-germany.svg" %><span>German</span></a></li>
+																		</ul>
+																</div>
+														</div>
+												</div>
+										</div>
+										<!-- End xs modal -->
+								</li>
+								<li>
+									<a href="#" class="offset-side-bar">
+										<!-- <i class="fa fa-bag"></i> -->
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+											<path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+										</svg>
+									</a>
+								 </li>
+								<li>
+									<a href="#" class="searchIcon">
+										<!-- <i class="fa fa-search"></i> -->
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+											<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+										</svg>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="navSidebar-button">
+										<i class="icon-menu2"></i>
+									</a>
+								</li>
+						</ul>
+						<ul class="nav-menu align-to-right">
+								<li class="active"><a href="#">Home</a>
+										<div class="megamenu-panel">
+												<div class="megamenu-panel-row">
+														<div class="col-lg-4 col-12"><a href="index.html"><%= image_tag "menu_img/home_1.jpg", alt: "image" %><span>Home One</span></a></div>
+														<div class="col-lg-4 col-12"><a href="index-2.html"><%= image_tag "menu_img/home_2.jpg", alt: "image" %><span>Home Two</span></a></div>
+														<div class="col-lg-4 col-12"><a href="index-3.html"><%= image_tag "menu_img/home_3.jpg", alt: "image" %><span>Home Three</span></a></div>
+														<div class="col-lg-4 col-12"><a href="index-4.html"><%= image_tag "menu_img/home_4.jpg", alt: "image" %><span>Home Four</span></a></div>
+												</div>
+										</div>
+								</li>
+								<li><a href="#featured" class="scrolls">Features</a></li>
+								<li><a href="#how_work" class="scrolls">How it work</a></li>
+								<li><a href="#team" class="scrolls">Team</a></li>
+								<li><a href="#blog" class="scrolls">Blog</a></li>
+						</ul>
+				</div>
+		</nav>
+	</div>
+	<!-- .container END -->
+</header>
+<!-- header section end -->
+<%
+=end%>
+
+
+<div id="particles-js">
+  <%= render "home/banner" %>
+	<div class="featured-area">
+		<div class="blockcain-and-featured-area">
+			<%= render "home/intro" %>
+			<%= render "home/trade" %>
+		</div>
+		<%= render "home/airdrop1" %>
+	</div>
+</div>
+<!--  -->
+		
+<div class="how-work-and-token-area">
+	<%= render "home/airdrop2" %>
+	<div class="blog-and-footer-area">
+		<div class="blog-and-social-area">
+			<%= render "home/fund" %>
+		</div>
+	</div>
+	<div class="token-roadmap-area">
+		<%#= render "home/income" %>
+		<%= render "home/roadmap" %>
+		<%= render "home/team" %>
+	</div>
+</div>
+<!--  -->
+				
+<div class="document-and-team-area">
+	<%= render "home/doc" %>
+</div>
+						
+<div class="blog-and-footer-area">
+	<div class="blog-and-social-area">
+		<%#= render "home/blog" %>
+		<%#= render "home/social_list" %>
+	</div>
+	<%= render "layouts/footer" %>
+</div>
+
+<div class="BackTo pt-2">
+	<a href="#" class="" aria-hidden="true">
+		<i class="bi bi-arrow-up"></i>
+	</a>
+</div>
+
+<script>
+	// 滚动事件监听
+	window.addEventListener('scroll', function() {
+	    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+	    const backToElement = document.querySelector('.BackTo');
+	    
+	    if (scrollPosition > 3000) {
+	        // 淡入效果
+	        backToElement.style.display = 'block';
+	        backToElement.style.opacity = '0';
+	        backToElement.style.transition = 'opacity 0.6s ease';
+	        setTimeout(() => {
+	            backToElement.style.opacity = '1';
+	        }, 10);
+	    } else {
+	        // 淡出效果
+	        backToElement.style.opacity = '0';
+	        backToElement.style.transition = 'opacity 0.6s ease';
+	        setTimeout(() => {
+	            backToElement.style.display = 'none';
+	        }, 600);
+	    }
+	});
+	
+	// 点击事件监听
+	document.querySelector('.BackTo').addEventListener('click', function(event) {
+	    event.preventDefault();
+	    
+	    // 平滑滚动到顶部
+	    const start = window.scrollY;
+	    const duration = 800;
+	    const startTime = performance.now();
+	    
+	    function scrollAnimation(currentTime) {
+	        const elapsed = currentTime - startTime;
+	        const progress = Math.min(elapsed / duration, 1);
+	        // 使用简单的缓动函数
+	        const easing = 1 - Math.pow(1 - progress, 4);
+	        
+	        window.scrollTo(0, start * (1 - easing));
+	        
+	        if (progress < 1) {
+	            requestAnimationFrame(scrollAnimation);
+	        }
+	    }
+	    
+	    requestAnimationFrame(scrollAnimation);
+	});
+	
+	// 初始宽度检查
+	if (window.innerWidth > 767) {
+	    const backToElement = document.querySelector('.BackTo');
+	    if (backToElement) {
+	        backToElement.style.display = 'none';
+	    }
+	}
+</script>
+											
+<!-- <script type="module" src="<%= asset_path('js/jquery-3.2.1.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/jquery.magnific-popup.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/owl.carousel.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/navigation.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/jquery.appear.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/wow.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/chart.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/particles.min.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/smooth-scroling.js') %>"></script> -->
+<!-- <script type="module" src="<%= asset_path('js/main.js') %>"></script> -->

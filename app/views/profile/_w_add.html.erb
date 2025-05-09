@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "w_add" do %>
+  <div>
+    <%= raw data[:img] %>
+  </div>
+  
+  <%= link_to "javascript:void(0)", class: "text-decoration-none text-light d-block rounded-3 mt-3", data: {"turbo-prefetch": "false", controller: "clipboard", action: "clipboard#copy"} do %>
+    <%= hidden_field :copy, :code, data: {"clipboard-target": "code"}, value: data[:address] %>
+    <span class="bg-dark rounded p-2"><span class="fw-bold"><%= mask_string data[:address] %></span></span>
+  <% end %>
+<% end %>

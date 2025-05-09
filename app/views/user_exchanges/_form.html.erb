@@ -1,0 +1,74 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="fw-bold">绑定交易所</div>
+    </div>
+
+    <%= form_with(model: @user_exchange, local: true) do |form| %>
+      <% if @user_exchange.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user_exchange.errors.count, "error") %> prohibited this user exchange from being saved:</h2>
+
+          <ul>
+            <% @user_exchange.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= form.label :user, "用户", class: "form-label" %>
+              <%= form.collection_select :user_id, 
+                    User.all, 
+                    :id, 
+                    :email, 
+                    { prompt: "请选择一个用户" }, 
+                    { class: "form-control", id: "user_exchange_user_id" } %>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <%= form.label :exchange, "交易所", class: "form-label" %>
+              <%= form.collection_select :exchange_id, 
+                    Exchange.all, 
+                    :id, 
+                    :name, 
+                    { prompt: "请选择一个交易所" }, 
+                    { class: "form-control", id: "user_exchange_exchange_id" } %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= form.label :api_key, "API Key", class: "form-label" %>
+              <%= form.textarea :api_key, class: "form-control" %>
+              <small id="user_exchange_api_key" class="form-text text-muted">我们永远不会与任何人分享您的API Key。</small>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :api_secret, "API Secret", class: "form-label" %>
+              <%= form.textarea :api_secret, class: "form-control" %>
+              <small id="emailHelp2" class="form-text text-muted">我们永远不会与任何人分享您的API Secret。</small>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :memo, "备注" %>
+              <%= form.text_field :memo, class: "form-control" %>
+            </div>
+        </div>
+      </div>
+
+      <div class="card-action">
+        <%= form.submit "提交", class: "btn btn-success" %>
+        <%= link_to '返回', user_exchanges_path, class: "btn btn-warning" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

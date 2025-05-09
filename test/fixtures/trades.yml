@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trade_type: 1
+  action: MyString
+  price: 9.99
+  quantity: 9.99
+  total_amount: 9.99
+  fee: 9.99
+  status: 1
+  profit_loss: 9.99
+  order_id: MyString
+  executed_at: 2025-03-31 19:07:02
+  admin_id: 1
+  user: one
+  user_exchange: one
+  coin: one
+
+two:
+  trade_type: 1
+  action: MyString
+  price: 9.99
+  quantity: 9.99
+  total_amount: 9.99
+  fee: 9.99
+  status: 1
+  profit_loss: 9.99
+  order_id: MyString
+  executed_at: 2025-03-31 19:07:02
+  admin_id: 1
+  user: two
+  user_exchange: two
+  coin: two

@@ -1,0 +1,47 @@
+<div class="col-sm-12">
+	<div class="card card-pricing">
+		<div class="card-body">
+			<div class="p-3">
+				<div class="d-flex justify-content-between mb-3">
+					<span>編號</span>
+					<span><%= @exchange.id %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>交易所名稱</span>
+					<span class="text-capitalize"><%= @exchange.name %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>网址</span>
+					<span><%= @exchange.official_web %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>备注信息</span>
+					<span><%= @exchange.description %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>Logo</span>
+					<span>
+					  <% if @exchange.logo.attached? %>
+							<%= image_tag @exchange.logo, width: 32, class: "img-fluid" %>
+						<% else %>
+							<i class="bi bi-image text-muted" style="font-size: 32px;"></i>
+						<% end %>
+					</span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>狀態</span>
+					<span><%= @exchange.status %></span>
+				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<span>創建時間</span>
+					<span><%= @exchange.created_at %></span>
+				</div>
+			</div>
+		</div>
+		<div class="nav p-3">
+		  <%= link_to "編輯", edit_exchange_path(@exchange), class: "btn btn-warning" %>&nbsp;
+		  <%= link_to "返回", exchanges_path, class: "btn btn-primary" %>&nbsp;
+		  <%= button_to "刪除", @exchange, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "確認刪除？" } %>
+		</div>
+	</div>
+</div>

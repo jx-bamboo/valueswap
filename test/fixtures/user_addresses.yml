@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  network: MyString
+  address: MyString
+  balance: 9.99
+  user: one
+  address: one
+
+two:
+  network: MyString
+  address: MyString
+  balance: 9.99
+  user: two
+  address: two

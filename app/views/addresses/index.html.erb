@@ -1,0 +1,54 @@
+<% content_for :title, "Addresses" %>
+
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="d-flex justify-content-between align-items-center">
+				<div class="fw-bold">地址 · address</div>
+
+        <%= form_with(model: @address) do |form| %>
+          <div class="input-group">
+            <%= form.number_field :count, class: "form-control", placeholder: "Number of addresses", min: 1, value: 1, required: true %>
+            <%= form.submit "创建地址", class: "btn btn-outline-primary", id: "button-addon2" %>
+          </div>
+        <% end %>
+			</div>
+		</div>
+		<div class="card-body">
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table class="table table-hover" role="grid">
+						<thead>
+							<tr class="text-nowrap" role="row">
+								<th>編號</th>
+								<th>网络</th>
+								<th>地址</th>
+								<th>私钥</th>
+								<th>状态</th>
+								<th>創建時間</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @addresses.each do |address| %>
+								<tr>
+									<td><%= address.id %></td>
+									<td><%= address.network %></td>
+									<td><%= address.address %></td>
+									<td><%= mask_string address.pri_key_encrypted %></td>
+									<td><%= address.status %></td>
+                  
+									<td><%= address.created_at.strftime("%Y.%m.%d %H:%M:%S") %></td>
+									<td>
+                    <%= link_to address do %><i class="bi bi-eye-fill"></i><% end %>
+
+                  </td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

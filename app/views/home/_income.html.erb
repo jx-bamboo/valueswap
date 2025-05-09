@@ -1,0 +1,104 @@
+<section class="token-distribution-sec section-padding" style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mx-auto">
+				<div class="section-title-item"><small class="xs-section-title">收益詳情</small>
+					<h2 class="section-title">收益比例</h2>
+				</div>
+			</div>
+		</div>
+			
+		<div class="row">
+			<div class="col-lg-6 wow fadeInUp" data-wow-duration="1.5s">
+				<div class="row chart-gap">
+					<div class="col-sm-7 ml-lg-auto">
+						<canvas class="token-chart-item" id="myChart"></canvas>
+						<h3 class="xs-single-title">現貨收益</h3>
+					</div>
+					<div class=" col-sm-5">
+						<ul class="chart-label">
+							<li><%= image_tag "token/label_img1.png" %><span class="chart-bg1">10 %</span>DOGE</li>
+							<li><%= image_tag "token/label_img2.png" %><span class="chart-bg2">08 %</span>SOL</li>
+							<li><%= image_tag "token/label_img3.png" %><span class="chart-bg3">12 %</span>ETH</li>
+							<li><%= image_tag "token/label_img4.png" %><span class="chart-bg4">70 %</span>BTC </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+				
+			<div class="col-lg-6 wow fadeInUp" data-wow-duration="2s">
+				<div class="row chart-gap">
+					<div class="col-sm-7 ml-lg-auto">
+						<canvas class="token-chart-item" id="myChartTwo"></canvas>
+						<h3 class="xs-single-title">基金收益</h3>
+					</div>
+					<div class="col-sm-5">
+						<ul class="chart-label">
+							<li><%= image_tag "token/label_img1.png" %><span class="chart-bg1">10 %</span>三號基金</li>
+							<li><%= image_tag "token/label_img2.png" %><span class="chart-bg2">08 %</span>四號基金</li>
+							<li><%= image_tag "token/label_img3.png" %><span class="chart-bg3">12 %</span>二號基金</li>
+							<li><%= image_tag "token/label_img4.png" %><span class="chart-bg4">70 %</span>一號基金</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<!-- <script>
+	function createChart(chartId, chartData) {
+		if (document.getElementById(chartId)) {
+			var ctx = document.getElementById(chartId).getContext("2d");
+			new Chart(ctx, {
+				type: "doughnut",
+				data: chartData,
+				options: {
+					plugins: {
+						legend: {
+							display: false // 隐藏图例
+						},
+						tooltip: {
+							enabled: false // 隐藏提示框
+						},
+						datalabels: {
+							display: false // 隐藏数据标签（如果使用插件）
+						}
+					},
+					// cutout: "70%", // 设置环形图的中间空洞比例
+					responsive: true, // 设置图表为响应式，根据屏幕窗口变化而变化
+					maintainAspectRatio: true,// 保持图表原有比例
+				}
+			});
+		}
+	}
+	
+	// 数据定义
+	var myChartData = {
+		// labels: ["Community", "Reserved Fund", "Advisor Team", "Sold Globally"],
+		datasets: [{
+			label: '# 現貨收益',
+			data: [10, 8, 12, 70],
+			backgroundColor: ["#ae31d9", "#f18b7e", "#5db7fa", "#26d7e5"],
+			borderColor: ["#02014c", "#02014c", "#56a7f9", "#56a7f9"],
+			borderWidth: 0,
+			hoverOffset: 10
+		}]
+	};
+	
+	var myChartTwoData = {
+		// labels: ["Community", "Reserved Fund", "Advisor Team", "Sold Globally"],
+		datasets: [{
+			label: '# 基金收益',
+			data: [10, 8, 12, 70],
+			backgroundColor: ["#c13cbd", "#4a8df8", "#26d7e5", "#ef7b7e"],
+			borderColor: ["#02014c", "#02014c", "#56a7f9", "#ef7b7e"],
+			borderWidth: 0
+		}]
+	};
+	
+	// 创建图表
+	createChart("myChart", myChartData);
+	createChart("myChartTwo", myChartTwoData);
+</script> -->
